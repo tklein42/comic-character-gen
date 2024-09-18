@@ -21,7 +21,7 @@ The initial character generation was performed using **Stable Diffusion**, speci
 
 
 ## Dreambooth LoRA Finetuning
-To maintain consistency across multiple image generations, **Dreambooth and LoRA finetuning** on a pre-trained model was used, resulting in a unique "sks character" style. I chose Dreambooth and LoRA because they the ability to generate high quality unique poses and facial expressions of a character seen in only a few instances with minimal training due to the Low Rank Adaptation. With this it is possible to generate the initial character with much more ease than previously as all of the unique prompt characteristics have now been encoded into the unique token `sks character`. Here are some images produced after finetuning:
+To maintain consistency across multiple image generations, **Dreambooth and LoRA finetuning** on a pre-trained model was used, resulting in a unique "sks character" style. I chose Dreambooth and LoRA because they have the ability to generate high quality unique poses and facial expressions of a character seen in only a few instances with minimal training due to the Low Rank Adaptation. With this it is possible to generate the initial character with much more ease than previously as all of the unique prompt characteristics have now been encoded into the unique token `sks character`. Here are some images produced after finetuning:
 
 <div style="display: flex; justify-content: space-between;">
     <img src="/images_after_finetuning/dreambooth_lora_image_1.png" alt="Image 1" width="200"/>

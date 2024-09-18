@@ -71,7 +71,7 @@ Using this method we can encode information regarding the desired outfit to rein
     <h3 style="font-weight: normal;">Outfits</h3>
     <div style="display: flex; justify-content: space-between; gap: 10px;">
         <img src="/outfits/outfit_1.png" alt="Image 1" width="200"/>
-        <img src="/outfits/outfit_1.png" alt="Image 2" width="200"/>
+        <img src="/outfits/outfit_2.png" alt="Image 2" width="200"/>
     </div>
 </div>
 
@@ -80,22 +80,22 @@ In using these the following results were gathered:
 <div style="text-align: center;">
     <h3 style="font-weight: normal;">Set 1 - Generated From Outfit 1</h3>
     <div style="display: flex; justify-content: space-between; gap: 10px;">
-        <img src="/set_1/pipe1-outfit1-scene1.png" alt="Image 1" width="150"/>
-        <img src="/set_1/pipe1-outfit1-scene2.png" alt="Image 2" width="150"/>
-        <img src="/set_1/pipe1-outfit1-scene3.png" alt="Image 3" width="150"/>
-        <img src="/set_1/pipe1-outfit1-scene4.png" alt="Image 4" width="150"/>
-        <img src="/set_1/pipe1-outfit1-scene5.png" alt="Image 5" width="150"/>
+        <img src="/set_1/pipe1-outfit1-scene1.png" alt="Image 1" width="160"/>
+        <img src="/set_1/pipe1-outfit1-scene2.png" alt="Image 2" width="160"/>
+        <img src="/set_1/pipe1-outfit1-scene3.png" alt="Image 3" width="160"/>
+        <img src="/set_1/pipe1-outfit1-scene4.png" alt="Image 4" width="160"/>
+        <img src="/set_1/pipe1-outfit1-scene5.png" alt="Image 5" width="160"/>
     </div>
 </div>
 
 <div style="text-align: center;">
     <h3>Set 2 - Generated From Outfit 2</h3>
     <div style="display: flex; justify-content: space-between; gap: 10px;">
-        <img src="/set_2/pipe1-outfit2-scene1.png" alt="Image 1" width="150"/>
-        <img src="/set_2/pipe1-outfit2-scene2.png" alt="Image 2" width="150"/>
-        <img src="/set_2/pipe1-outfit2-scene3.png" alt="Image 3" width="150"/>
-        <img src="/set_2/pipe1-outfit2-scene4.png" alt="Image 4" width="150"/>
-        <img src="/set_2/pipe1-outfit2-scene5.png" alt="Image 5" width="150"/>
+        <img src="/set_2/pipe1-outfit2-scene1.png" alt="Image 1" width="160"/>
+        <img src="/set_2/pipe1-outfit2-scene2.png" alt="Image 2" width="160"/>
+        <img src="/set_2/pipe1-outfit2-scene3.png" alt="Image 3" width="160"/>
+        <img src="/set_2/pipe1-outfit2-scene4.png" alt="Image 4" width="160"/>
+        <img src="/set_2/pipe1-outfit2-scene5.png" alt="Image 5" width="160"/>
     </div>
 </div>
 
@@ -168,9 +168,9 @@ Further explanations for how these are used in the alternate pipeline, that is s
 <div style="text-align: center; display: flex; justify-content: space-between;">
     <h3 style="font-weight: normal;">Inpainting Results From Outfit 1</h3>
     <div style="display: flex; justify-content: space-between; gap: 10px;">
-        <img src="/alternate_pipeline_images/pipe2-outfit1-scene1.png" alt="Image 1" width="150"/>
-        <img src="/alternate_pipeline_images/pipe2-outfit1-scene2.png" alt="Image 2" width="150"/>
-        <img src="/alternate_pipeline_images/pipe2-outfit1-scene3.png" alt="Image 3" width="150"/>
+        <img src="/alternate_pipeline_images/pipe2-outfit1-scene1.png" alt="Image 1" width="200"/>
+        <img src="/alternate_pipeline_images/pipe2-outfit1-scene2.png" alt="Image 2" width="200"/>
+        <img src="/alternate_pipeline_images/pipe2-outfit1-scene3.png" alt="Image 3" width="200"/>
     </div>
 </div>
 
@@ -183,4 +183,4 @@ As seen throughout each of the images there is always visual artifacts from the 
 
 2. Unique Character Lacking Variability
 
-From my experiments in generating the character using inpainting I found that it was extremely difficult to have my `sks character` generate anything outside of a jacket, and simply put, I failed to recognize this sooner as now although the model recognizes the features of the character it also identifies the jacket as a key characteristic. Because of this when imploying the inpainting, the model was capable of producing similar colors, such as a black jacket and jeans for the case with outfit 1, however it was struggling to match the outfit exactly with only the t-shirt.
+From my experience in generating the character using inpainting I found that it was extremely difficult to have my `sks character` generate anything outside of a jacket, and simply put, I failed to recognize this sooner as now although the model recognizes the features of the character it also identifies the jacket as a key characteristic. Because of this when imploying the inpainting, the model was capable of producing similar colors, such as a black jacket and jeans for the case with outfit 1, however it was struggling to match the outfit exactly with only the t-shirt.

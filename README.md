@@ -67,12 +67,12 @@ txt2img_pipe.set_ip_adapter_scale(scale)
 
 Using this method we can encode information regarding the desired outfit to reinforce the text prompt. I generated both from scratch as to attempt to not confuse the model with character and  design choice also allowed me to avoid using a segmentation method as to extract only the outfit from a possibly noisy image. The following two outfits were used:
 
-<div style="display: flex; justify-content: space-between; gap: 10px;">
-    <figure>
+<div style="display: flex; justify-content: center; gap: 10px;">
+    <figure style="text-align: center;">
         <img src="/outfits/outfit_1.png" alt="Image 1" width="200"/>
         <figcaption>Outfit 1</figcaption>
     </figure>
-    <figure>
+    <figure style="text-align: center;">
         <img src="/outfits/outfit_2.png" alt="Image 2" width="200"/>
         <figcaption>Outfit 2</figcaption>
     </figure>
@@ -81,7 +81,7 @@ Using this method we can encode information regarding the desired outfit to rein
 In using these the following results were gathered:
 
 <div style="text-align: center;">
-    <h3>Set 1 - Generated From Outfit 1</h3>
+    <h3 style="font-weight: normal;">Set 1 - Generated From Outfit 1</h3>
     <div style="display: flex; justify-content: space-between; gap: 10px;">
         <img src="/set_1/pipe1-outfit1-scene1.png" alt="Image 1" width="150"/>
         <img src="/set_1/pipe1-outfit1-scene2.png" alt="Image 2" width="150"/>

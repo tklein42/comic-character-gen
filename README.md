@@ -103,9 +103,11 @@ In using these the following results were gathered:
 From these results we can see that the model was able to generalize our character in different poses and expressions while maintaining a similar outfit throughout. However there are major drawbacks that need to be addressed.
 
 1. Altered Character Style
+
 As seen throughout the generated images we can see that in the process of fusing the image and text prompts the resulting 'sks character' loses some of its characteristics from the initial training set. Where the characteristics, although still not realistic, moving in the direction of realism, whereas the original model is capable of a much more cartoonish appearance.
 
 2. Altered Colored Palette
+
 Another observation that can be seen throughout both sets of images is caused by a similar issue in fusing the two prompts together. This is the issue where the colors used within the outfit image are taken as a palette for image generation. As seen by set 1 having more cooler colors present and set 2 having more warmer colors present. This is likely due to the high weight placed into the style component of `ip-adapter-scale` which was shown to be necessary for applying the outfit using this method.
 
 ## Future Directions
@@ -176,7 +178,9 @@ Further explanations for how these are used in the alternate pipeline, that is s
 From these results we can see that the model was able to generalize our character in different poses and expressions while maintaining a similar outfit and even be able to produce much more diverse color palettes and backgrounds. However this method is showing some major drawbacks and possibly some other oversights that should be addressed before continuation of project.
 
 1. Visual Artifacts
+
 As seen throughout each of the images there is always visual artifacts from the inpainting as the background hasn't seamless been generated, whether this be an issue with the initial mask or the SDXL model itself. Inorder to minimize this it was assumed that a simple solution would be to reduce the denoising strength as to keep the image as close to the original as possible while only updating the outfit, however this helped identify the following oversight.
 
 2. Unique Character Lacking Variability
+
 From my experiments in generating the character using inpainting I found that it was extremely difficult to have my `sks character` generate anything outside of a jacket, and simply put, I failed to recognize this sooner as now although the model recognizes the features of the character it also identifies the jacket as a key characteristic. Because of this when imploying the inpainting, the model was capable of producing similar colors, such as a black jacket and jeans for the case with outfit 1, however it was struggling to match the outfit exactly with only the t-shirt.

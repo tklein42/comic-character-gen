@@ -30,6 +30,77 @@ To maintain consistency across multiple image generations, **Dreambooth and LoRA
     <img src="/images_after_finetuning/dreambooth_lora_image_4.png" alt="Image 1" width="200"/>
 </div>
 
+## Character Generation with IP-Adapter
+With the LoRA weights saved, we simply load the weights back into the SDXL model so that information about the character and corresponding token are now known. This can be accomplished as follows:
+
+```python
+from diffusers import StableDiffusionXLPipeline
+
+# Load txt2img pipe
+model_id = "stabilityai/stable-diffusion-xl-base-1.0"
+txt2img_pipe = StableDiffusionXLPipeline.from_pretrained(
+    model_id,
+    torch_dtype=torch.bfloat16,
+    use_safetensors=True,
+    )
+
+# Load the LoRA weights
+lora_weights_path = "/content/pytorch_lora_weights.safetensors"
+txt2img_pipe.load_lora_weights(lora_weights_path)
+
+txt2img_pipe.to("cuda")
+```
+
+Once the weights are loading we can use the functionality built into hugging face diffusers to implement the IP-Adapter. The IP-Adapter, effectively adds the ability for the model to take an image prompt. It fuses the image prompt along with the original text prompt to give more control over the appearance of the image. This can be loaded simply by the following code:
+
+```python
+# Load IP-Adapter
+txt2img_pipe.load_ip_adapter("h94/IP-Adapter", subfolder="sdxl_models", weight_name="ip-adapter_sdxl.bin")
+
+# Image Prompt Scale
+scale = {
+    "down": {"block_2": [0.0, 0.4]}, # Layout
+    "up": {"block_0": [0.0, 0.85, 0.0]}, # Style
+}
+txt2img_pipe.set_ip_adapter_scale(scale)
+```
+
+Using this method we can encode information regarding the desired outfit to reinforce the text prompt. I generated both from scratch as to attempt to not confuse the model with character and  design choice also allowed me to avoid using a segmentation method as to extract only the outfit from a possibly noisy image. The following two outfits were used:
+
+<div style="display: flex; justify-content: space-between; gap: 10px;">
+    <figure>
+        <img src="/outfits/outfit_1.png" alt="Image 1" width="200"/>
+        <figcaption>Outfit 1</figcaption>
+    </figure>
+    <figure>
+        <img src="/outfits/outfit_2.png" alt="Image 2" width="200"/>
+        <figcaption>Outfit 2</figcaption>
+    </figure>
+</div>
+
+In using these the following results were gathered:
+
+<div style="text-align: center;">
+    <h3>Set 1 - Generated From Outfit 1</h3>
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <img src="/set_1/pipe1-outfit1-scene1.png" alt="Image 1" width="150"/>
+        <img src="/set_1/pipe1-outfit1-scene2.png" alt="Image 2" width="150"/>
+        <img src="/set_1/pipe1-outfit1-scene3.png" alt="Image 3" width="150"/>
+        <img src="/set_1/pipe1-outfit1-scene4.png" alt="Image 4" width="150"/>
+        <img src="/set_1/pipe1-outfit1-scene5.png" alt="Image 5" width="150"/>
+    </div>
+</div>
+
+<div style="text-align: center;">
+    <h3>Set 2 - Generated From Outfit 2</h3>
+    <div style="display: flex; justify-content: space-between; gap: 10px;">
+        <img src="/set_2/pipe1-outfit2-scene1.png" alt="Image 1" width="150"/>
+        <img src="/set_2/pipe1-outfit2-scene2.png" alt="Image 2" width="150"/>
+        <img src="/set_2/pipe1-outfit2-scene3.png" alt="Image 3" width="150"/>
+        <img src="/set_2/pipe1-outfit2-scene4.png" alt="Image 4" width="150"/>
+        <img src="/set_2/pipe1-outfit2-scene5.png" alt="Image 5" width="150"/>
+    </div>
+</div>
 
 ### Example Code for LoRA Finetuning
 
